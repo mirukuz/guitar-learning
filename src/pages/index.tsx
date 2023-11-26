@@ -172,5 +172,4 @@ export default IndexPage
 export const Head: HeadFC = () =>
   <>
     <title>Guitar neck visualizer | Interactive CAGED System | Pentatonic Scale | Triads</title>
-    <meta name="google-adsense-account" content="ca-pub-7208801641886266" />
   </>

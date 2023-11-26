@@ -14,6 +14,12 @@ const config: GatsbyConfig = {
     // "gatsby-plugin-google-gtag",
     "gatsby-plugin-sitemap",
     {
+      resolve: `gatsby-plugin-google-adsense`,
+      options: {
+        publisherId: `ca-pub-7208801641886266`
+      },
+    },
+    {
       resolve: `gatsby-omni-font-loader`,
       options: {
         enableListener: true,
