@@ -1,7 +1,7 @@
 import * as React from "react"
 import "../styles/global.css"
 import * as Style from "../styles/styles"
-import type { HeadFC, PageProps } from "gatsby"
+import type { HeadFC } from "gatsby"
 const allKeys: string[] = ['C', 'Db', 'D', 'Eb', 'E', 'F', 'Gb', 'G', 'Ab', 'A', 'Bb', 'B'];
 
 interface KeyChart {
@@ -169,6 +169,8 @@ const IndexPage: React.FC = () => {
 
 export default IndexPage
 
-export const Head: HeadFC = () => <>
-<title>Guitar neck visualizer | Interactive CAGED System | Pentatonic Scale | Triads</title>
-</>
+export const Head: HeadFC = () =>
+  <>
+    <title>Guitar neck visualizer | Interactive CAGED System | Pentatonic Scale | Triads</title>
+    <meta name="google-adsense-account" content="ca-pub-7208801641886266"></meta>
+  </>
