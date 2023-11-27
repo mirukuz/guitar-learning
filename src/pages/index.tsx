@@ -171,6 +171,6 @@ export default IndexPage
 
 export const Head: HeadFC = () =>
   <>
-    <title>Guitar neck visualizer </title>
-    <meta name="description" content="Interactive Guitar Neck | CAGED System | Pentatonic Scale | Triads" />
+    <title>Interactive Guitar Visualiser</title>
+    <meta name="description" content="Explore the guitar neck with our interactive visualizer. Easily see all notes, play in different keys, and discover triads and pentatonic scales. Your ultimate guitar guide!" />
   </>
