@@ -26,8 +26,8 @@ const config: GatsbyConfig = {
         preconnect: [`https://fonts.googleapis.com`, `https://fonts.gstatic.com`],
         web: [
           {
-            name: `Roboto`,
-            file: `https://fonts.googleapis.com/css2?family=Roboto&display=swap`,
+            name: `Ubuntu`,
+            file: `https://fonts.googleapis.com/css2?family=Ubuntu:ital,wght@0,300;0,400;0,500;1,300;1,400&display=swap`,
           },
         ],
       },

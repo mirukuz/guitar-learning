@@ -41,7 +41,7 @@ export const BlueButton = styled.button<ButtonProps>`
 
 export const NeckContainer = styled.div`
   position: relative;
-  margin: 20px 50px 50px;
+  margin: 20px auto;
   width: var(--neck-width);
   height: var(--neck-height);
   background: linear-gradient(45deg, #5e3719, #b2a496); 
@@ -87,7 +87,7 @@ export const Fret = styled.div`
   }
 `;
 
-export const Dots= styled.ul`
+export const Dots = styled.ul`
   position: absolute;
   width: 1200px;
   height: 20px;
@@ -171,4 +171,83 @@ export const Note = styled.li`
 export const Config = styled.div`
   display: flex;
   justify-content: center;
+`;
+
+export const Section = styled.div`
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  max-width: 1200px;
+  margin: 0 auto;
+`;
+
+export const Footer = styled.div`
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  max-width: 1200px;
+  margin: 0 auto;
+`;
+
+export const FeatureList = styled.ol`
+    list-style-type: none;
+    padding: 0;
+`;
+
+export const FeatureItem = styled.li`
+    margin-bottom: 10px;
+`;
+
+export const SubFeatureList = styled.ul`
+    list-style-type: none;
+    padding: 0;
+    margin-top: 0;
+`;
+
+export const SubFeatureItem = styled.li`
+    margin-bottom: 5px;
+`;
+
+export const HowToUseList = styled.ol`
+    list-style-type: none;
+    padding: 0;
+`;
+
+export const H1 = styled.h1`
+    font-weight: 600;
+    font-size: 1.8rem;
+    margin-top: 1rem;
+    margin-bottom: 0.5rem;
+`;
+
+export const H2 = styled.h2`
+    font-weight: 600;
+    font-size: 1.2rem;
+    margin-top: 1rem;
+    margin-bottom: 0.3rem;
+`;
+
+export const HowToUseItem = styled.li`
+    margin-bottom: 10px;
+`;
+
+export const SubHowToUseList = styled.ul`
+    list-style-type: none;
+    padding: 0;
+    margin-top: 0;
+`;
+
+export const SubHowToUseItem = styled.li`
+    margin-bottom: 5px;
+`;
+
+export const Em = styled.em`
+    color: #666;
+`;
+
+export const P = styled.p`
+    font-weight: 400;
+    font-size: 1rem;
+    margin-top: 1rem;
+    margin-bottom: 0.3rem;
 `;
