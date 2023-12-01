@@ -284,3 +284,8 @@ export const Head: HeadFC = () =>
     <meta name="google-site-verification" content="Wv55rN_tLL7O-6Rp0ZXis8O43Un4LsETGNniFItxrQ0" />
     <meta name="description" content="Explore the guitar neck with our interactive visualizer. Easily see all notes, play in different keys, and discover triads and pentatonic scales. Your ultimate guitar guide!" />
   </>
+
+// TODO: 
+// 1. disable scale button and triad button if no use
+// 2. add the wheel of fifth
+// 3. make page responsive
