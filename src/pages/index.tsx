@@ -12,7 +12,15 @@ interface NoteColor {
   [key: string]: string;
 }
 
-const majorScaleInEachKey: KeyChart = {
+interface Modes {
+  [mode: string]: KeyChart
+}
+
+interface Indexes {
+  [mode: string]: string[]
+}
+
+const ionian: KeyChart = {
   "C": ["C", "D", "E", "F", "G", "A", "B", "C"],
   "G": ["G", "A", "B", "C", "D", "E", "Gb", "G"],
   "D": ["D", "E", "Gb", "G", "A", "B", "Db", "D"],
@@ -25,6 +33,26 @@ const majorScaleInEachKey: KeyChart = {
   "Eb": ["Eb", "F", "G", "Ab", "Bb", "C", "D", "Eb"],
   "Bb": ["Bb", "C", "D", "Eb", "F", "G", "A", "Bb"],
   "F": ["F", "G", "A", "Bb", "C", "D", "E", "F"]
+}
+
+const aeolian: KeyChart = {
+  "C": ["C", "D", "Eb", "F", "G", "Ab", "Bb", "C"],
+  "G": ["G", "A", "Bb", "C", "D", "Eb", "F", "G"],
+  "D": ["D", "E", "F", "G", "A", "Bb", "Db", "D"],
+  "A": ["A", "B", "C", "D", "E", "F", "G", "A"],
+  "E": ["E", "Gb", "G", "A", "B", "C", "D", "E"],
+  "B": ["B", "Db", "D", "E", "Gb", "G", "A", "B"],
+  "Ab": ["Ab", "Bb", "Cb", "Db", "Eb", "Fb", "Gb", "Ab"],
+  "Gb": ["Gb", "Ab", "A", "B", "Db", "D", "E", "Gb"],
+  "Db": ["Db", "Eb", "Fb", "Gb", "Ab", "A", "Cb", "Db"],
+  "Eb": ["Eb", "F", "Gb", "Ab", "Bb", "Cb", "Db", "Eb"],
+  "Bb": ["Bb", "C", "Db", "Eb", "F", "Gb", "Ab", "Bb"],
+  "F": ["F", "G", "Ab", "A", "C", "Db", "Eb", "F"],
+}
+
+const modes: Modes = {
+  ionian,
+  aeolian
 }
 
 const notesData: string[][] = [
@@ -46,11 +74,46 @@ const notesColor: NoteColor = {
   7: "#a7c957",
   "0": "#bcb8b1"
 }
-const getRelative = (key: string, note: string): number => {
-  const scale = majorScaleInEachKey[key];
-  const noteIndex = scale.indexOf(note);
 
-  return noteIndex + 1;
+const pentatonicIndexes: Indexes = {
+  ionian: ["1", "2", "3", "5", "6"],
+  aeolian: ["1", "b3", "4", "5", "b7"]
+}
+
+const triadIndexes: Indexes = {
+  ionian: ["1", "2", "3"],
+  aeolian: ["1", "b3", "5"]
+}
+
+const getInterval = (note1: string, note2: string): string => {
+  const index1 = allKeys.indexOf(note1);
+  const index2 = allKeys.indexOf(note2);
+
+  if (index1 === -1 || index2 === -1) {
+    return ""; // Invalid note name
+  }
+
+  const distance = (index2 - index1 + allKeys.length) % allKeys.length;
+  const intervalMapping: Record<number, string> = {
+    0: '1',
+    1: 'b2',
+    2: '2',
+    3: 'b3',
+    4: '3',
+    5: '4',
+    6: 'b5',
+    7: '5',
+    8: 'b6',
+    9: '6',
+    10: 'b7',
+    11: '7',
+  };
+
+  return intervalMapping[distance];
+}
+
+const getRelative = (key: string, note: string): string => {
+  return getInterval(key, note)
 };
 
 const IndexPage: React.FC = () => {
@@ -58,6 +121,7 @@ const IndexPage: React.FC = () => {
   const [isRelative, setToRelative] = React.useState<boolean>(false);
   const [isPentatonic, setToPentatonic] = React.useState<boolean>(false);
   const [isTriads, setTriads] = React.useState<boolean>(false);
+  const [mode, setMode] = React.useState<string>("ionian");
   const strings: string[] = ['e', 'b', 'g', 'd', 'a', 'e'];
 
   const renderFrets = (): JSX.Element[] =>
@@ -110,9 +174,9 @@ const IndexPage: React.FC = () => {
         const relativeNote = getRelative(selectedKey, note);
         const displayNote =
           (!isRelative && !isPentatonic && !isTriads) ||
-          (!isPentatonic && !isTriads && isRelative && relativeNote > 0 && relativeNote < 8) ||
-          (isPentatonic && [1, 2, 3, 5, 6].includes(relativeNote)) ||
-          (isTriads && [1, 3, 5].includes(relativeNote));
+          (!isPentatonic && !isTriads && isRelative) ||
+          (isPentatonic && pentatonicIndexes[mode].includes(relativeNote)) ||
+          (isTriads && triadIndexes[mode].includes(relativeNote));
 
         return (
           <Style.Note
@@ -154,6 +218,12 @@ const IndexPage: React.FC = () => {
             {key}
           </Style.BlueButton >
         ))}
+        <Style.Button isSelected={mode=="ionian"} onClick={() => setMode("ionian")}>
+          Major Scale
+        </Style.Button >
+        <Style.Button isSelected={mode=="aeolian"} onClick={() => setMode("aeolian")}>
+          Minor Scale
+        </Style.Button >
         <Style.Button isSelected={isRelative} onClick={() => setToRelative(!isRelative)}>
           Relative Notes
         </Style.Button >
