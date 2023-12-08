@@ -171,6 +171,7 @@ export const Note = styled.li`
 export const Config = styled.div`
   display: flex;
   justify-content: center;
+  align-items: center;
 `;
 
 export const Section = styled.div`
