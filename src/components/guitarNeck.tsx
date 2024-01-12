@@ -95,7 +95,7 @@ const GuitarNeck: React.FC<GuitarNeckProps> = ({
             key={fretIndex}
             style={{
               display: displayNote ? "inline" : "none",
-              top: 19 + stringIndex * 42,
+              top: 19 + stringIndex * 45,
               left: 120 + (fretIndex - 1) * 80,
               backgroundColor: highlight? "#dd2d4a" : notesColor[relativeNote],
             }}

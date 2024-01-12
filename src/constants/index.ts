@@ -207,7 +207,7 @@ export const notesData: string[][] = [
 // };
 
 export const notesColor: NoteColor = {
-  // 1: "#dd2d4a",
+  1: "#dd2d4a",
   // 2: "#dd2d4a",
   // 3: "#dd2d4a",
   // 4: "#dd2d4a",

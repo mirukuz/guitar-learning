@@ -15,8 +15,12 @@
     "typecheck": "tsc --noEmit"
   },
   "dependencies": {
+    "@chakra-ui/react": "^2.8.2",
+    "@emotion/react": "^11.11.3",
+    "@emotion/styled": "^11.11.0",
     "@magenta/music": "^1.23.1",
     "babel-plugin-styled-components": "^2.1.4",
+    "framer-motion": "^10.18.0",
     "gatsby": "^5.12.4",
     "gatsby-omni-font-loader": "^2.0.2",
     "gatsby-plugin-google-adsense": "^1.1.3",

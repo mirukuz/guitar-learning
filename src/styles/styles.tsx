@@ -55,7 +55,7 @@ export const OpenNotesContainer = styled.ul`
 `;
 
 export const OpenNote = styled.li`
-  margin-bottom: 21px;
+  margin-bottom: 1rem;
   font-size: 18px;
   color: #fff;
 
@@ -66,7 +66,7 @@ export const OpenNote = styled.li`
 
 export const FretNumber = styled.div`
   position: absolute;
-  top: 260px;
+  top: var(--neck-height);
 `;
 
 export const Fret = styled.div`
@@ -151,7 +151,7 @@ export const String = styled.li`
 export const Notes = styled.ul`
   position: absolute;
   width: var(--neck-width);
-  height: 258px;
+  height: var(--neck-height);
   overflow-x: hidden;
 `;
 
@@ -166,12 +166,6 @@ export const Note = styled.li`
   text-align: center;
   line-height: 30px;
   box-shadow: 0px 3px 5px 0px rgba(0, 0, 0, 0.75);
-`;
-
-export const Config = styled.div`
-  display: flex;
-  justify-content: center;
-  align-items: center;
 `;
 
 export const Section = styled.div`

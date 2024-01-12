@@ -2,6 +2,8 @@ import * as React from "react";
 import "../styles/global.css";
 import * as Style from "../styles/styles";
 import type { HeadFC } from "gatsby";
+import { VStack, Button } from "@chakra-ui/react";
+import { ChakraProvider } from '@chakra-ui/react'
 import StatefulGuitarNeck from "../components/StatefulGuitarNeck";
 
 const IndexPage: React.FC = () => {
@@ -12,15 +14,13 @@ const IndexPage: React.FC = () => {
   };
 
   return (
-    <>
-      <Style.Section>
+    <ChakraProvider>
+      <VStack>
         <Style.H1>Guitar neck visualiser</Style.H1>
-      </Style.Section>
-      <Style.Config>
-        <Style.Button onClick={handleDuplicate}>Add New</Style.Button>
-      </Style.Config>
+        <Button onClick={handleDuplicate}>Add New</Button>
+      </VStack>
       {Array.from({ length: componentCount }, (_, index) => (<StatefulGuitarNeck />))}
-    </>
+    </ChakraProvider>
   );
 };
 
@@ -49,3 +49,4 @@ export const Head: HeadFC = () => (
 // 6. ability to add more chords
 // 7. display diatonic scale accordingly like C - 1 3 5
 // 8. set bmp then auto play
+// 9. 吉他小短句子

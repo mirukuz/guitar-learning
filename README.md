@@ -1,3 +1,4 @@
+[![Netlify Status](https://api.netlify.com/api/v1/badges/1a33bd12-649c-464a-ab76-7a0fb97a6603/deploy-status)](https://app.netlify.com/sites/guitarvisualiser/deploys)
 <p align="center">
   <a href="https://www.gatsbyjs.com/?utm_source=starter&utm_medium=readme&utm_campaign=minimal-starter-ts">
     <img alt="Gatsby" src="https://www.gatsbyjs.com/Gatsby-Monogram.svg" width="60" />
@@ -6,6 +7,7 @@
 <h1 align="center">
   Gatsby Minimal TypeScript Starter
 </h1>
+
 
 ## 🚀 Quick start
 

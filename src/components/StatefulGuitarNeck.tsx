@@ -1,7 +1,8 @@
 import * as React from "react";
 import "../styles/global.css";
-import * as Style from "../styles/styles";
 import { allKeys } from "../constants";
+import { Select, Stack, Button } from "@chakra-ui/react";
+
 import GuitarNeck from "./guitarNeck";
 
 const StatefulGuitarNeck: React.FC = () => {
@@ -11,6 +12,10 @@ const StatefulGuitarNeck: React.FC = () => {
   const [isTriads, setTriads] = React.useState<boolean>(false);
   const [mode, setMode] = React.useState<string>("ionian");
   const [currentChord, setCurrentChord] = React.useState<number>(0);
+
+  const handleSelectChange = (event: React.ChangeEvent<HTMLSelectElement>) => {
+    changeKey(event.target.value);
+  };
 
   return (
     <>
@@ -22,7 +27,7 @@ const StatefulGuitarNeck: React.FC = () => {
         mode={mode}
         chord={currentChord}
       />
-      <Style.Config>
+      {/* <Style.Config>
         <p>Set Chords:</p>
         <div style={{ display: "flex" }}>
           <div>
@@ -36,50 +41,55 @@ const StatefulGuitarNeck: React.FC = () => {
           </div>
         </div>
         <p>Current Chord: {currentChord}</p>
-      </Style.Config>
-      <Style.Config>
-        {allKeys.map((key) => (
-          <Style.BlueButton
-            isSelected={selectedKey === key}
-            key={key}
-            onClick={() => changeKey(key)}
-          >
-            {key}
-          </Style.BlueButton>
-        ))}
-      </Style.Config>
-      <Style.Config>
-        <Style.Button
-          isSelected={mode == "ionian"}
+      </Style.Config> */}
+      <Stack spacing={4} direction="row" align="center" justify="center" mt={{ base: "10px", md: "20px", lg: "30px" }}>
+        <Select placeholder="Select Key" onChange={handleSelectChange} width="200px">
+          {allKeys.map((key) => (
+            <option value={key}>{key}</option>
+          ))}
+        </Select>
+        <Button
+          colorScheme="teal"
+          variant={mode == "ionian" ? "solid" : "outline"}
+          size="md"
           onClick={() => setMode("ionian")}
         >
           Major Scale
-        </Style.Button>
-        <Style.Button
-          isSelected={mode == "aeolian"}
+        </Button>
+        <Button
+          colorScheme="teal"
+          variant={mode == "aeolian" ? "solid" : "outline"}
+          size="md"
           onClick={() => setMode("aeolian")}
         >
           Minor Scale
-        </Style.Button>
-        <Style.Button
-          isSelected={isRelative}
+        </Button>
+        <Button
+          colorScheme="teal"
+          variant={isRelative ? "solid" : "outline"}
+          size="md"
           onClick={() => setToRelative(!isRelative)}
         >
           Relative Notes
-        </Style.Button>
-        <Style.Button
-          isSelected={isPentatonic}
+        </Button>
+        <Button
+          colorScheme="teal"
+          variant={isPentatonic ? "solid" : "outline"}
+          size="md"
+          // isSelected={isPentatonic}
           onClick={() => setToPentatonic(!isPentatonic)}
         >
           Pentatonic Scale
-        </Style.Button>
-        <Style.Button
-          isSelected={isTriads}
+        </Button>
+        <Button
+          colorScheme="teal"
+          variant={isTriads ? "solid" : "outline"}
+          size="md"
           onClick={() => setTriads(!isTriads)}
         >
           Triads
-        </Style.Button>
-      </Style.Config>
+        </Button>
+      </Stack>
     </>
   );
 };
